@@ -1,0 +1,31 @@
+{% extends 'nursebase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+</head>
+    <body>
+        {% block body_block %}
+        {% load nurse_tags %}
+        {% if user|is_nurse %}
+        <div id="nurse_editpro">
+        <form id="edit_nurse" method="post" action="/healthnet/nurse/editprofile/">
+                {% csrf_token %}
+                <h1>Edit Nurse Profile</h1>
+                {{ nurse_form.as_p }}
+                <button name="save_edit" id="edit_profile" type="submit" >Save</button>
+                <a href="/healthnet/nurse/"><input type="button" value="Go Back"/></a>
+        </form>
+        {% else %}
+            {% include "healthnet/index.html" %}
+        {% endif %}
+        </div>
+    {% endblock %}
+
+            {% block cal_block %}
+        {% endblock %}
+    </body>
+</html>

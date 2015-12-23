@@ -1,0 +1,33 @@
+{% extends 'adminbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Transfer</title>
+    </head>
+    
+    {% load user_tags %}
+    {% if user|is_administrators %}
+    <body>
+    {% block body_block %}
+    <div id="admin_transfer_body">
+        <form id="make_prescription" method="post" action="{% url 'administrator:transfer' patient.pk %}">
+            {% csrf_token %}
+            <h1>Transfer Patient</h1>
+            <p>Patient: {{ patient.user.username }}</p>
+            {{ form.as_p }}
+            <input type="submit" name="Submit" value="Submit" />
+            <a href="{% url 'administrator:edituser' %}"><input type="button" value="Cancel"/></a>
+        </form>
+        </div>
+    </body>
+    {% endblock %}
+    {% else %}
+       {% include "healthnet/index.html" %}
+    {% endif %}
+
+        {% block cal_block %}
+        {% endblock %}
+</html>

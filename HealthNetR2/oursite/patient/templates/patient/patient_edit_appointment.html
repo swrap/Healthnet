@@ -1,0 +1,32 @@
+{% extends 'patientbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Edit Appointment</title>
+    </head>
+            {% block body_block %}
+
+    {% load patient_tags %}
+    {% if user|is_patient %}
+    <body>
+    <div id="patient_editappt">
+        <form method="post" action="{% url 'patient:editapp' pk %}">
+            {% csrf_token %}
+            <h1>Edit Appoinment</h1>
+            {{ appointment_form.as_p }}
+            <input type="submit" name="Save" value="Save"/>
+            <a href="/healthnet/patient/appointments/"><input type="button" value="Cancel"/></a>
+        </form>
+        </div>
+    </body>
+    {% else %}
+       {% include "healthnet/index.html" %}
+    {% endif %}
+    {% endblock %}
+
+        {% block cal_block %}
+        {% endblock %}
+</html>

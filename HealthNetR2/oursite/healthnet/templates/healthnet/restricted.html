@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>New Message</title>
+    </head>
+
+    <body>
+        <div id="restricted_body">
+            <div id="box">
+            <h1>{{message}}</h1>
+            <form id="restricted_page" method="post" action="{% url 'healthnet:index' %}">
+            {% csrf_token %}
+            <div><span id="time"></span></div>
+            </form>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    function startTimer(duration, display) 
+    {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            seconds = parseInt(timer % 60, 10);
+
+            display.textContent = "Redirecting in: " + seconds;
+
+            if(--timer < 0)
+            {
+                document.forms['restricted_page'].submit();
+            }
+        }, 1000);
+    }
+
+window.onload = function () {
+    var time = 2,
+        display = document.querySelector('#time');
+    startTimer(time, display);
+};
+</script>

@@ -1,0 +1,50 @@
+{% extends 'nursebase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Appointments</title>
+</head>
+<body>
+  {% block body_block %}
+  <div id="nurse_view_all_appt">
+  <h1>Scheduled Appointments</h1>
+  <form id="allappointments" method="post" action="{% url 'nurse:allappointments'%}">
+      {% csrf_token %}
+      <br/>
+      <br/>
+      <br/>
+      {% for appointment in appointments %}
+      <div id="nurse_list">
+      <ul>
+            <p>Appointment for {{ appointment.user }}</p>
+            <p>Doctor: {{ appointment.doctor }}</p>
+            <p>{{ appointment.date_time }}</p>
+
+            {% for usr in userprof %}
+                {% if usr.user == appointment.user %}
+                    Location: {{ usr.hospital }}
+      </ul>
+                {% endif %}
+            {% endfor %}
+            <div id="nurse_edit_button">
+            <a href="{% url 'nurse:editapp' appointment.id %}"><input type="button" value="Edit"/></a>
+            </div>
+      {% endfor %}
+      <br/>
+          <br/>
+          <div id="nurse_buttons">
+          <input type="submit" name='make' value="Make Appointment" />
+          <a href="{% url 'nurse:index' %}"><input type="button" value="Back"/></a>
+          </div>
+      </div>
+  </form>
+  </div>
+  {% endblock %}
+
+        {% block cal_block %}
+        {% endblock %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>New Patient</title>
+    </head>
+
+    <body>
+    <div id="patient_reg">
+        <form id="create_user" method="post" action="/healthnet/patient/register/">
+            {% csrf_token %}
+            <h1>New Patient</h1>
+            {{ patient_form.as_p }}
+            {{ patient_profile_form.as_p }}
+            <input type="submit" name="submit" value="Register" />
+            <a href="/healthnet/"><input type="button" value="Cancel"/></a>
+        </form>
+        </div>
+
+            {% block cal_block %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,35 @@
+{% extends 'patientbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Edit User</title>
+    </head>
+
+    <body>
+            {% block body_block %}
+
+        {% load patient_tags %}
+        {% if user|is_patient %}
+        <div id="patient_editpro">
+        <form id="edit_patient" method="post" action="/healthnet/patient/editpatient/">
+                {% csrf_token %}
+                <h1>Edit User</h1>
+                {{ patient_form.as_p }}
+                {{ patient_profile_form.as_p }}
+                <button name="edit_patient" id="edit_patient" type="submit" >Save</button>
+                <input type="submit" name="export" value="Export User Medical Information" onclick="return confirm('PRIVACY WARNING EXPORTING ABOUT TO EXPORT MEDICAL DATA')"/>
+                <a href="/healthnet/patient/"><input type="button" value="Cancel and Back"/></a>
+        </form>
+        {% else %}
+            {% include "healthnet/index.html" %}
+        {% endif %}
+        </div>
+    {% endblock %}
+
+            {% block cal_block %}
+        {% endblock %}
+    </body>
+</html>

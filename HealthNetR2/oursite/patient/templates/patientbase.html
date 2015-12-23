@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <link rel='stylesheet' type="text/css" href="{% static 'fullcalendar.css' %}"/>
+
+        <title>{% block title %}HealthNet{% endblock %}</title>
+
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/moment.min.js' %}"></script>
+        <script src="{% static 'js/fullcalendar.js' %}"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+        // page is now ready, initialize the calendar...
+
+            $('#calendar').fullCalendar({
+        // put your options and callbacks here
+                events: {{ allAppointments }}
+            })
+        });
+        </script>
+    </head>
+
+    <body>
+        <div>
+        </div>
+
+        {% block body_nav %}
+            {% if user.is_authenticated %}
+        <div id="nav">
+            <ul id="patient_menu_bar">
+                <h1><a href="{% url 'patient:patient_index' %}"><span style="color: red;">H</span>ealth<span style="color: red;">N</span>et</a></h1>
+                <li><a href="/healthnet/logout/">Logout</a></li>
+                <li><a href="/healthnet/patient/messages/">Messages</a></li>
+                <li><a href="/healthnet/patient/viewmedicalinfo/">Medical Info</a></li>
+                <li><a href="/healthnet/patient/editpatient/">Edit Profile</a></li>
+                <li><a href="/healthnet/patient/appointments/">Appointments</a></li>
+            {% else %}
+            <li ><a href="/healthnet/register/">Register</a></li>
+            <li ><a href="/healthnet/login/">Login</a></li><br />
+            </ul>
+        </div>
+        {% endif %}
+        {% endblock %}
+
+        {% block body_block %}
+        {% endblock %}
+        {% block cal_block %}
+                <div id="calendar"></div>
+        {% endblock %}
+    </body>
+</html>

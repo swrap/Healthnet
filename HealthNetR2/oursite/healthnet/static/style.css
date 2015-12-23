@@ -1,0 +1,1280 @@
+/*
+ALL PAGES
+*/
+
+html{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+body{
+  width: 95%;
+  height: 100%;
+  position: relative;
+  background: #6699ff;
+}
+
+/*
+HEALTHNET TEMPLATES
+*/
+
+#index_bod {
+  background: #6699ff url("images/hnback.png") no-repeat center center fixed;
+  background-size: 100%%;
+  width: 99%;
+  height: 99%;
+  position: absolute;
+}
+
+#index_button {
+  margin-left: 50px;
+}
+
+#layer {
+  z-index: -10;
+  width: 95%;
+  height: 95%;
+  position: absolute;
+}
+
+/*color: red; font-size: 10em; font-family: Arial*/
+
+#layer h1{
+  margin: 0px auto;
+  z-index: -10;
+  font-size: 6000%;
+}
+
+#master_index{
+  color: white;
+  width: 600px;
+  height: 280px;
+  background: gray;
+  margin: 200px auto;
+  border: 1px solid black;
+}
+
+#master_index h1 {
+  font-family: "Arial";
+  width: 75%;
+  margin: 30px auto;
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+#login_box {
+  font-family: "Arial";
+  width: 400px;
+  margin: 20px auto;
+}
+
+#login_box input {
+  border: 1px solid black;
+  float: right;
+}
+
+#master_index input[type=submit] {
+margin: 5px 48px;
+padding:5px 15px;
+background:#ccc;
+border:0 none;
+cursor:pointer;
+border: 1px solid black;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+}
+
+#reg_link {
+  height: 25px;
+  width: 100%;
+  margin-top: 20px;
+  background: #0040ff;
+
+}
+
+#reg_link li {
+  font-family: "Arial";
+  margin: 5px auto;
+  padding-top: 3px;
+  list-style-type: none;
+  text-align: center;
+
+}
+
+#reg_link a{
+  text-decoration: none;
+  display: block;
+  color: white;
+}
+
+#nav {
+  width: 95%;
+  height: 5%;
+  margin: 0px auto;
+  position: relative;
+}
+
+/*
+BASE
+*/
+
+#menu_bar {
+  width: 100%;
+  min-width: 1100px;
+  height: 100%;
+  background-color: gray;
+  margin: 0px auto;
+  position: relative;
+  border: 2px solid black;
+}
+
+#patient_menu_bar {
+  width: 100%;
+  min-width: 800px;
+  height: 100%;
+  background-color: gray;
+  margin: 0px auto;
+  position: relative;
+  border: 2px solid black;
+}
+
+#menu_bar li {
+  float: right;
+  display: inline;
+}
+
+#patient_menu_bar li {
+  float: right;
+  display: inline;
+}
+
+
+#menu_bar li {
+  text-align: center;
+  margin: 10px 10px;
+  font-family: "Arial";
+  width: 120px;
+  float: right;
+  display: inline;
+  position: relative;
+  z-index: +10;
+}
+
+#patient_menu_bar li {
+  text-align: center;
+  margin: 10px 10px;
+  font-family: "Arial";
+  width: 120px;
+  float: right;
+  display: inline;
+  position: relative;
+  z-index: +10;
+}
+
+
+#menu_bar a {
+    width: 130px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    text-decoration: none;
+}
+
+#patient_menu_bar a {
+    width: 130px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    text-decoration: none;
+}
+
+
+#menu_bar a:hover{
+}
+
+#patient_menu_bar a:hover{
+}
+
+#menu_bar h1 a {
+    width: 120px;
+    font-weight: bold;
+    font-size: 46px;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    text-decoration: none;
+}
+
+#menu_bar h1 {
+    font-family: "Arial";
+    width: 100%;
+    position: absolute;
+    top: -29px;
+}
+
+#patient_menu_bar h1 a {
+    width: 120px;
+    font-weight: bold;
+    font-size: 46px;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    text-decoration: none;
+
+}
+
+
+#patient_menu_bar h1 {
+    font-family: "Arial";
+    width: 100%;
+    position: absolute;
+    top: -29px;
+}
+
+#nurse_menu_bar {
+  width: 100%;
+  min-width: 800px;
+  height: 100%;
+  background-color: gray;
+  margin: 0px auto;
+  position: relative;
+  border: 2px solid black;
+}
+
+#nurse_bar li {
+  float: right;
+  display: inline;
+}
+
+#nurse_menu_bar li {
+  text-align: center;
+  margin: 10px 10px;
+  font-family: "Arial";
+  width: 130px;
+  float: right;
+  display: inline;
+  position: relative;
+  z-index: +10;
+}
+
+#nurse_menu_bar a {
+    width: 130px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    text-decoration: none;
+}
+
+#nurse_menu_bar a:hover{
+}
+
+
+#nurse_menu_bar h1 a {
+    width: 120px;
+    font-weight: bold;
+    font-size: 46px;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    text-decoration: none;
+}
+
+
+#nurse_menu_bar h1 {
+    font-family: "Arial";
+    width: 100%;
+    position: absolute;
+    top: -29px;
+}
+
+#doctor_menu_bar {
+  width: 100%;
+  min-width: 1100px;
+  height: 100%;
+  background-color: gray;
+  margin: 0px auto;
+  position: relative;
+  border: 2px solid black;
+}
+
+#doctor_bar li {
+  float: right;
+  display: inline;
+}
+
+#doctor_menu_bar li {
+  text-align: center;
+  margin: 10px 10px;
+  font-family: "Arial";
+  width: 120px;
+  float: right;
+  display: inline;
+  position: relative;
+  z-index: +10;
+}
+
+#doctor_menu_bar a {
+    width: 130px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    text-decoration: none;
+}
+
+#doctor_menu_bar a:hover{
+}
+
+
+#doctor_menu_bar h1 a {
+    width: 120px;
+    font-weight: bold;
+    font-size: 46px;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    text-decoration: none;
+}
+
+
+#doctor_menu_bar h1 {
+    font-family: "Arial";
+    width: 100%;
+    position: absolute;
+    top: -29px;
+}
+
+
+
+
+/*
+ADMIN TEMPLATES
+*/
+
+#admin_index_body {
+  font-family: "Arial";
+  margin: 100px auto;
+  width: 687px;
+  height: 200px;
+  background: gray;
+  color: white;
+  border: 1px solid black;
+}
+
+#admin_index_body h1{
+  position: relative;
+  margin-top: 50px;
+  text-align: center;
+
+}
+
+#admin_index_body h2{
+  margin-top: 0px;
+  text-align: center;
+}
+
+#admin_edit_body {
+  border-top: 4px solid black;
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#admin_edit_body h1{
+  color: white;
+  margin: 172px auto;
+  margin-left: -10px;
+  width: 696px;
+  padding-left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#admin_add_body {
+  border-top: 4px solid black;
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#admin_add_body h1{
+  color: white;
+  margin: 172px auto;
+  margin-left: -10px;
+  width: 696px;
+  padding-left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  }
+
+/*
+PATIENT TEMPLATES
+*/
+
+#patient_reg {
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  width: 99%;
+}
+
+#patient_makeappt {
+  height: 300px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#patient_makeappt h1{
+    width: 700px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#patient_makeappt form {
+  padding-top: 20px;
+  height: 300px;
+}
+
+
+#patient_medical_body {
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+
+}
+
+#patient_medical_body h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#patient_medical_body h2{
+  width: 682px;
+  color: white;
+  padding-left: 5px;
+  background: gray;
+  margin-top: 100px;
+}
+
+
+#patient_index_body {
+  font-family: "Arial";
+  margin: 100px auto;
+  margin-bottom: 25px;
+  width: 687px;
+  height: 120px;
+  text-align: center;
+  background: gray;
+  color: white;
+  border: 1px solid black;
+}
+
+
+#patient_index_body h2 {
+}
+
+
+#patient_appt_body {
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+
+}
+
+#patient_appt_body h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#patient_appt_body h2{
+  width: 682px;
+  color: white;
+  padding-left: 5px;
+  background: gray;
+  margin-top: 100px;
+}
+
+#button_box {
+  background: gray;
+}
+
+
+
+#alluserappointments {
+  color: white;
+}
+
+#alluserappointments h2{
+  color: white;
+}
+
+#button_box {
+  margin-top: 100px;
+  height: 50px;
+}
+
+#button_box input[type=submit] {
+margin: 13px 2px;
+padding:2px 5px;
+background: #ccc;
+border:0 none;
+cursor:pointer;
+float: left;
+border: 1px solid black;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+}
+
+#patient_editpro {
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  height: 650px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#patient_editpro h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#patient_editpro form {
+  padding-top: 20px;
+  height: 300px;
+}
+
+
+
+
+#patient_editappt {
+  margin: 180px auto;
+  width: 686px;
+  padding-top: 10px;
+  height: 220px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+
+#patient_editappt h1 {
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#patient_makeappt {
+  color: white;
+  margin-top: 120px;
+}
+
+#patient_makeappt h1{
+  color: white;
+  margin-top: 100px;
+}
+
+#welcome h2 {
+    color: white;
+    text-align: center;
+    font-family: "Arial";
+    width: 100%;
+    top: 100px;
+    position: absolute;
+}
+
+#form_body {
+  margin-top: 100px;
+}
+
+#form_body h1 {
+  margin-top: 100px;
+}
+
+#HNwelcome {
+  color: white;
+  text-align: center;
+}
+
+#login_body h1 {
+  color: white;
+}
+
+#login_form {
+  color: white;
+}
+
+#make_appt_form_body {
+  margin-top: 100px;
+  color: white;
+}
+
+#make_appointment {
+  color: white;
+}
+
+#make_appt_form_body h1 {
+  margin-top: 100px;
+  color: white;
+}
+
+#reg_form_body form {
+  color: white;
+}
+
+#reg_form_body h1{
+  color: white;
+}
+
+#reg_form_body p{
+  color: white;
+}
+
+#message_body {
+  position: relative;
+  font-family: "Arial";
+  color: white;
+  width: 95%;
+  margin: 100px auto;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#message_body h1{
+  margin-top: -8px;
+  background: gray;
+}
+
+
+#new_message_body {
+  position: relative;
+  font-family: "Arial";
+  color: white;
+  width: 95%;
+  margin: 100px auto;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+
+
+#new_message_body h1{
+  margin-top: -8px;
+  background: gray;
+}
+
+#message_body a {
+  text-decoration: none;
+}
+
+/*
+NURSE TEMPLATES
+*/
+
+#nurse_index_body {
+  font-family: "Arial";
+  margin: 100px auto;
+  margin-bottom: 25px;
+  width: 687px;
+  height: 130px;
+  text-align: center;
+  background: gray;
+  color: white;
+  border: 1px solid black;
+}
+
+#nurse_index_body h1{
+  margin-top: 100px;
+}
+
+#nurse_editpro {
+  text-align: left;
+  margin: 0px auto;
+  margin-top: 125px;
+  width: 810px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding-left: 10px;
+}
+
+#nurse_editpro h1{
+  width: 810px;
+  background: rgba(0, 0, 0, 0.6);
+  background: gray;
+  margin: 0px -10px;
+  margin-top: 117px;
+  padding-left: 10px;
+}
+
+#nurse_viewpatient_body {
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+
+}
+
+#nurse_viewpatient_body h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#nurse_viewpatient_body h2{
+  width: 682px;
+  color: white;
+  padding-left: 5px;
+  background: gray;
+  margin-top: 100px;
+}
+
+#nurse_edit_button {
+  margin-left: 40px;
+}
+
+#nurse_buttons {
+  margin-left: 40px;
+}
+
+#nurse_search_body {
+text-align: center;
+  margin: 0px auto;
+  margin-top: 125px;
+  width: 810px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding-left: 10px;
+}
+
+#nurse_search_body h1{
+  width: 810px;
+  background: rgba(0, 0, 0, 0.6);
+  margin: 0px -10px;
+  margin-top: 117px;
+  padding-left: 10px;
+}
+
+#nurse_appt_body {
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+
+}
+
+#nurse_appt_body h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 40px;
+  background: gray;
+  margin-top: -10px;
+}
+
+#nurse_appt_body h2{
+  width: 682px;
+  color: white;
+  padding-left: 5px;
+  background: gray;
+  margin-top: 100px;
+}
+
+#nurse_allpatients_body {
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+
+}
+
+#nurse_allpatients_body h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#nurse_allpatients_body h2{
+  width: 682px;
+  color: white;
+  padding-left: 5px;
+  background: gray;
+  margin-top: 100px;
+}
+
+#nurse_editappt {
+  margin: 180px auto;
+  width: 686px;
+  padding-top: 10px;
+  height: 200px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+#nurse_editappt h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#display_body {
+  margin: 0px auto;
+  top: 120px;
+  width: 810px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding-left: 10px;
+  position: relative;
+}
+
+#display_body h1{
+  width: 810px;
+  background: rgba(0, 0, 0, 0.6);
+  margin: 0px -10px;
+  top: -35px;
+  padding-left: 10px;
+  position: relative;
+}
+#nurse_view_all_appt {
+  margin: 180px auto;
+  width: 686px;
+  background: #00194d;
+}
+
+#nurse_list {
+  border-top: 2px solid black;
+}
+
+#nurse_view_all_appt h1{
+  width: 686px;
+  color: white;
+  height: 100px;
+  background: gray;
+  margin-top: 165px;
+}
+
+#nurse_view_all_appt h2{
+  width: 686px;
+  color: white;
+  background: gray;
+  margin-top: 200px;
+}
+
+#allappointments {
+  color: white;
+}
+
+#allappointments h2 {
+  color: white;
+}
+
+
+#restricted_page {
+  color: white;
+  margin-top: 100px;
+}
+
+#box {
+  color: white;
+  position: relative;
+  width: 500px;
+  height: 200px;
+  margin: 250px auto;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#display_body {
+  margin-top: 100px;
+  color: white;
+}
+
+#display_body h1 {
+  color: white;
+  margin-top: 80px;
+}
+
+#calendar {
+  font-family: "Arial";
+  margin: 50px auto;
+  position: relative;
+  padding: 10px;
+  width: 1000px;
+  color: #003cb3;
+  background: white;
+  border: 2px solid black;
+}
+
+/*
+DOCTOR TEMPLATES
+*/
+
+#doctor_index_body {
+  font-family: "Arial";
+  margin: 100px auto;
+  margin-bottom: 25px;
+  width: 687px;
+  height: 130px;
+  text-align: center;
+  background: gray;
+  color: white;
+  border: 1px solid black;
+}
+
+#doctor_index_body h1{
+  margin-top: 100px;
+}
+
+#doctor_search_body {
+  margin-top: 100px;
+  color: white;
+
+
+}
+
+#doctor_search_body h1{
+  margin-top: 100px;
+}
+
+#patient_appt_body {
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+
+}
+
+#patient_appt_body h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#patient_appt_body h2{
+  width: 682px;
+  color: white;
+  padding-left: 5px;
+  background: gray;
+  margin-top: 100px;
+}
+
+#doctor_makeappt {
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+
+}
+
+#doctor_makeappt h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -20px;
+}
+
+#doctor_makeappt h2{
+  width: 682px;
+  color: white;
+  padding-left: 5px;
+  background: gray;
+  margin-top: 100px;
+}
+
+#doctor_editpro {
+  margin: 180px auto;
+  width: 686px;
+  padding-top: 10px;
+  height: 270px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+#doctor_editpro h1 {
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+
+#doctor_editappt {
+  margin: 180px auto;
+  width: 686px;
+  padding-top: 10px;
+  height: 200px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+#doctor_editappt h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#doctor_allpatients_body h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#doctor_allpatients_body h2{
+  width: 682px;
+  color: white;
+  padding-left: 5px;
+  background: gray;
+  margin-top: 100px;
+}
+
+#doctor_allpatients_body {
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+
+}
+
+#doctor_appt_body {
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+
+}
+
+#doctor_appt_body h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#doctor_appt_body h2{
+  width: 682px;
+  color: white;
+  padding-left: 5px;
+  background: gray;
+  margin-top: 100px;
+}
+
+
+#doctor_viewpatient_body {
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+
+}
+
+#doctor_viewpatient_body h1{
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#doctor_viewpatient_body h2{
+  width: 682px;
+  color: white;
+  padding-left: 5px;
+  background: gray;
+  margin-top: 100px;
+}
+
+
+#doctor_makescript {
+  margin: 180px auto;
+  width: 686px;
+  padding-top: 10px;
+  height: 200px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+#doctor_makescript h1 {
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+#doctor_transfer {
+  margin: 180px auto;
+  width: 686px;
+  padding-top: 10px;
+  height: 200px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+#doctor_transfer h1 {
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+#doctor_upload {
+  margin: 180px auto;
+  width: 686px;
+  padding-top: 10px;
+  height: 200px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+#doctor_upload h1 {
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#doctor_edittest {
+  margin: 180px auto;
+  width: 686px;
+  padding-top: 10px;
+  height: 200px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+#doctor_edittest h1 {
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+#doctor_maketest {
+  margin: 180px auto;
+  width: 686px;
+  padding-top: 10px;
+  height: 200px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+#doctor_maketest h1 {
+  width: 682px;
+  padding-left: 5px;
+  color: white;
+  height: 50px;
+  background: gray;
+  margin-top: -21px;
+}
+
+
+#admin_hosp_body {
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#admin_hosp_body h1{
+  color: white;
+  margin: 152px auto;
+  margin-left: -10px;
+  width: 686px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+
+}
+
+#hosp_list {
+  border-top: 3px solid black;
+}
+
+#log_body {
+  border-top: 4px solid black;
+  color: white;
+  margin: 180px auto;
+  width: 686px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#log_body h1{
+  color: white;
+  margin: 172px auto;
+  margin-left: -10px;
+  width: 696px;
+  padding-left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+
+}

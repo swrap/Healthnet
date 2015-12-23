@@ -1,0 +1,43 @@
+{% extends 'nursebase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/moment.min.js' %}"></script>
+        <script src="{% static 'js/fullcalendar.js' %}"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+        // page is now ready, initialize the calendar...
+
+            $('#calendar').fullCalendar({
+        // put your options and callbacks here
+                events: {{ allAppointments }}
+            })
+        });
+        </script>
+        <title>Make Appointment</title>
+    </head>
+    
+    {% load nurse_tags %}
+    {% if user|is_nurse %}
+    <body>
+    {% block body_block %}
+    <div id="nurse_appt_body">
+        <form id="make_appointment" method="post" action="{% url 'nurse:makeappointment' userprofile.id %}">
+            {% csrf_token %}
+            <h1>Make Appoinment</h1>
+            {{ appointment_form.as_p }}
+            <input type="submit" name="Submit" value="Submit" />
+            <a href="{% url 'nurse:viewpatientapps' userprofile.id %}"><input type="button" value="Cancel"/></a>
+        </form>
+        </div>
+        <div id="calendar"></div>
+    </body>
+    {% endblock %}
+    {% else %}
+       {% include "healthnet/index.html" %}
+    {% endif %}
+</html>

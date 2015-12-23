@@ -1,0 +1,29 @@
+{% extends 'nursebase.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search for a Patient</title>
+</head>
+<body>
+    {% block body_block %}
+    <div id="nurse_search_body">
+    <h1>Search for a Patients Medical Information</h1>
+    <form id="patientsearch" method="post" action="{% url 'nurse:patientfound' %}">
+        {% csrf_token %}
+        <p>{{ nopatient }}<br/></p>
+        Patient name: <input type="text" name="patientname" value="" size="50" />
+        <input type ="submit" value="Search" />
+        <a href="{% url 'nurse:index' %}"><input type="button" value="Back"/></a>
+
+    </form>
+    </div>
+
+    {% endblock %}
+
+        {% block cal_block %}
+        {% endblock %}
+
+</body>
+</html>

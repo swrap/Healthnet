@@ -1,0 +1,32 @@
+{% extends 'doctorbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Edit Appointment</title>
+    </head>
+            {% block body_block %}
+
+    {% load doctor_tags %}
+    {% if user|is_doctor %}
+    <body>
+    <div id="doctor_edittest">
+        <form method="post" action="{% url 'doctor:edittest' pk pk2 %}">
+            {% csrf_token %}
+            <h1>Edit Test</h1>
+            {{ test_form.as_p }}
+            <input type="submit" name="Save" value="Save"/>
+            <a href="{% url 'doctor:viewpatient' pk2 %}"><input type="button" value="Cancel"/></a>
+        </form>
+        </div>
+    </body>
+    {% else %}
+       {% include "healthnet/index.html" %}
+    {% endif %}
+    {% endblock %}
+
+        {% block cal_block %}
+        {% endblock %}
+</html>

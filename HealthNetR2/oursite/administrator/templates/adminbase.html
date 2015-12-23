@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+        <title>{% block title %}HealthNet{% endblock %}</title>
+    </head>
+
+    <body>
+        <div>
+
+        </div>
+
+
+
+        {% block body_nav %}
+            {% if user.is_authenticated %}
+        <div id="nav">
+            <ul id="menu_bar">
+                <h1><a href="{% url 'administrator:index' %}"><span style="color: red;">H</span>ealth<span style="color: red;">N</span>et</a></h1>
+                <li><a href="/healthnet/logout/">Logout</a></li>
+                <li><a href="/healthnet/admin/messages/">Messages</a></li>
+                <li><a href="/healthnet/admin/info/">Statistics</a></li>
+                <li><a href="/healthnet/admin/log/">Log</a></li>
+                <li><a href="/healthnet/admin/createuser/">Create User</a></li>
+                <li><a href="/healthnet/admin/edituser/">Edit User</a></li>
+            {% else %}
+            <h1><a href="{% url 'administrator:index' %}"><span style="color: red;">H</span>ealth<span style="color: red;">N</span>et</a></h1>
+            <li ><a href="/healthnet/register/">Register</a></li>
+            <li ><a href="/healthnet/login/">Login</a></li><br />
+            </ul>
+        </div>
+        {% endif %}
+        {% endblock %}
+
+        {% block body_block %}{% endblock %}
+    </body>
+</html>

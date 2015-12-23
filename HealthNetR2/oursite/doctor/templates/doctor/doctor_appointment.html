@@ -1,0 +1,45 @@
+{% extends 'doctorbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+    <body>
+        {% block body_block %}
+        {% csrf_token %}
+        {% load doctor_tags %}
+        <div id="doctor_appt_body">
+        {% if user|is_doctor %}
+            <h1>Appointments</h1>
+            <h2>Doctor: {{ user.first_name }}</h2>
+            <form id="alluserappointments" method="post" action="{% url 'doctor:allappointments' %}">{% csrf_token %}
+                {% for e in all_appointments %}
+                    <p>Patient: {{ e.user.first_name }} {{ e.user.last_name}}
+                    <br>{{ e.date_time }}
+                    <br>Location: {{ e.user|get_location }}
+                    {% if len > 0 %}
+                        <input type="hidden" name="yes" value=""><br >
+                        <a href="{% url 'doctor:editapp' e.id %}"><input type="button" value="Edit"/></a>
+                        <a href="{% url 'doctor:deleteapp' e.id %}"><input type="button" value="Delete"/></a>
+                    {% endif %}
+                    <br>
+                {% endfor %}
+                <div id="button_box">
+                    <input type="submit" name='make' value="Make Appointment" />
+                    <input type="submit" name='delete_all' value="Delete All Appointments" onclick="return confirm('Are you sure?')" />
+                    <input type="submit" name='home' value="Go Back To Home" />
+                </div>
+            </form>
+            {% else %}
+                {% include "healthnet/index.html" %}
+            {% endif %}
+            </div>
+            {% endblock %}
+
+            {% block cal_block %}
+        {% endblock %}
+    </body>
+</html>

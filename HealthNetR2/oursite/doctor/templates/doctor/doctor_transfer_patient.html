@@ -1,0 +1,33 @@
+{% extends 'doctorbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Transfer</title>
+    </head>
+    
+    {% load doctor_tags %}
+    {% if user|is_doctor %}
+    <body>
+    {% block body_block %}
+    <div id="doctor_transfer">
+        <form id="make_prescription" method="post" action="{% url 'doctor:transferpatient' pk %}">
+            {% csrf_token %}
+            <h1>Transfer Patient</h1>
+            <p>Patient: {{ patient.user.username }}</p>
+            {{ form.as_p }}
+            <input type="submit" name="Submit" value="Submit" />
+            <a href="{% url 'doctor:viewpatient' pk %}"><input type="button" value="Cancel"/></a>
+        </form>
+        </div>
+    </body>
+    {% endblock %}
+    {% else %}
+       {% include "healthnet/index.html" %}
+    {% endif %}
+
+        {% block cal_block %}
+        {% endblock %}
+</html>

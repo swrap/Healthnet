@@ -1,0 +1,27 @@
+{% extends group %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>New Message</title>
+    </head>
+
+    <body>
+        {% block body_block %}
+
+      <div id="new_message_body">
+        <h1>New Message</h1>
+        <form id="make_appointment" method="post" action="{% url 'healthnet:newmessage' %}">
+            {% csrf_token %} 
+            {{ message_form.as_p }}
+            <input type="submit" name="submit" value="Submit"/>
+            <input type="submit" name="cancel" value="Cancel and Go Back"/>
+        </form>
+      </div>
+        {% endblock %}
+      {% block cal_block %}
+      {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,78 @@
+{% extends 'nursebase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+    <body>
+        {% block body_block %}
+        {% csrf_token %}
+        {% load nurse_tags %}
+        {% load doctor_tags %}
+        <div id="nurse_viewpatient_body">
+        {% if user|is_nurse %}
+            <h1>Patient for Nurse: {{ user.first_name }}</h1>
+            <form id="viewpatient" method="get" action="{% url 'nurse:viewpatient' userprofile.id %}">{% csrf_token %}
+                <b>Username: </b> {{ userprofile.user.username }}<br><br>
+                <b>First Name: </b> {{ userprofile.user.first_name }}<br><br>
+                <b>Last Name: </b> {{ userprofile.user.last_name }}<br><br>
+                <b>Hospital: </b> {{ userprofile.hospital.name }}<br><br>
+                <b>Currently Admitted: </b> {{ userprofile.is_in_hospital }}<br>
+                {{ userprofileform.as_p }}
+                <input type="submit" name='update' value="Update" />
+                <br>
+                <h2>Prescriptions</h2>
+                {% if plen == 0 %}
+                    <p> None </p>
+                {% endif %}
+                {% for e in pscripts %}
+                    {% if plen > 0 %}
+                    <p>Prescription: {{ e.user.first_name }} {{ e.user.last_name}}
+                    <br>Name of Prescription: {{ e.name }}
+                    <br>Amount to Take: {{ e.amount }}
+                    <br>Reason: {{ e.reason }}
+                    {% endif %}
+                {% endfor %}
+
+                <h2>Tests</h2>
+                {% if tlen == 0 %}
+                    <p> None </p>
+                {% endif %}
+                {% for e in tests %}
+                    {% if tlen > 0 %}
+                    <p>Test: {{ e.user.first_name }} {{ e.user.last_name}}
+                    <br>Name of Test: {{ e.name_of_test }}
+                    <br>Result: {{ e.result }}
+                    <br>Reason/Comments: {{ e.reason }}
+                    {% endif %}
+                {% endfor %}
+
+                <h2>Files</h2>
+                {% if files %}
+                    {% for e in files %}
+                        <b>{{ e.file_name }}{{ e|extension }}
+                    {% endfor %}
+                {% else %}
+                    <p>None</p>
+                {% endif %}
+
+                <div id="button_box">
+                    <input type="submit" name='allpatients' value="View All Patients" />
+                    <input type="submit" name='admitreleaseform' value="Admit/Release Patient" />
+                    <input type="submit" name='viewappointments' value="View Patient Appointments" />
+                    <input type="submit" name='home' value="Go Back Home" />
+                </div>
+            </form>
+            {% else %}
+                {% include "healthnet/index.html" %}
+            {% endif %}
+            </div>
+            {% endblock %}
+
+            {% block cal_block %}
+        {% endblock %}
+    </body>
+</html>

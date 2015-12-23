@@ -1,0 +1,36 @@
+{% extends 'doctorbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/moment.min.js' %}"></script>
+        <script src="{% static 'js/fullcalendar.js' %}"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+        // page is now ready, initialize the calendar...
+
+            $('#calendar').fullCalendar({
+        // put your options and callbacks here
+                events: {{ allAppointments }}
+            })
+        });
+        </script>
+        <title>Doctor Homepage</title>
+    </head>
+    <body>
+        {% block body_block %}
+        <div id="doctor_index_body">
+        {% csrf_token %}
+            <h2 id="welcome_title">Welcome To Your HealthNet HomePage</h2>
+            <h2>Logged-In As Doctor: {{ user.first_name }}</h2>
+        </div>
+        {% endblock %}
+
+        {% block cal_block %}
+            <div id="calendar"></div>
+        {% endblock %}
+    </body>
+</html>

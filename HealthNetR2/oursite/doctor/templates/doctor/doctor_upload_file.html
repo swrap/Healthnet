@@ -1,0 +1,34 @@
+{% extends 'doctorbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Upload File</title>
+    </head>
+    
+    {% load doctor_tags %}
+    {% if user|is_doctor %}
+    <body>
+    {% block body_block %}
+    <div id="doctor_upload">
+        <form id="make_prescription" method="post" action="{% url 'doctor:uploadfile' patient.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>File Upload</h1>
+            <p>Patient: {{ patient.user.username }}</p>
+            {{ form }}
+            <br>
+            <input type="submit" name="Submit" value="Submit" />
+            <a href="{% url 'doctor:viewpatient' patient.id %}"><input type="button" value="Cancel"/></a>
+        </form>
+        </div>
+    </body>
+    {% endblock %}
+    {% else %}
+       {% include "healthnet/index.html" %}
+    {% endif %}
+
+        {% block cal_block %}
+        {% endblock %}
+</html>

@@ -1,0 +1,65 @@
+{% extends 'patientbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+    <body>
+        {% block body_block %}
+        {% csrf_token %}
+        {% load patient_tags %}
+        {% load doctor_tags %}
+        <div id="patient_medical_body">
+        {% if user|is_patient %}
+            <h1>All Medical Information for Patient: {{ user.first_name }}</h1>
+            <form id="viewpatient" method="post" action="{% url 'patient:viewmedicalinfo' %}">{% csrf_token %}
+                <h2>Prescriptions</h2>
+                {% if plen == 0 %}
+                    <p> None </p>
+                {% endif %}
+                {% for e in pscripts %}
+                    {% if plen > 0 %}
+                    <p>Prescription: {{ e.user.first_name }} {{ e.user.last_name}}
+                    <br>Name of Prescription: {{ e.name }}
+                    <br>Amount to Take: {{ e.amount }}
+                    <br>Reason: {{ e.reason }}
+                    {% endif %}
+                {% endfor %}
+
+                <h2>Tests</h2>
+                {% if tlen == 0 %}
+                    <p> None </p>
+                {% endif %}
+                {% for e in tests %}
+                    {% if tlen > 0 %}
+                    <p>Test: {{ e.user.first_name }} {{ e.user.last_name}}
+                    <br>Name of Test: {{ e.name_of_test }}
+                    <br>Result: {{ e.result }}
+                    <br>Reason/Comments: {{ e.reason }}
+                    {% endif %}
+                {% endfor %}
+
+                <h2>Files (Click FileName to View/Download)</h2>
+                {% if files %}
+                    {% for e in files %}
+                        <a href="{{ e.patient_file.url }}">{{ e.file_name }}{{ e|extension }}</a><br>
+                    {% endfor %}
+                {% else %}
+                    <p>None</p>
+                {% endif %}
+                <br>
+                <br>
+                <input type="submit" name="export" value="Export Medical Information (Test and Prescriptions)" onclick="return confirm('PRIVACY WARNING EXPORTING ABOUT TO EXPORT MEDICAL DATA')"/>
+            </form>
+            {% else %}
+                {% include "healthnet/index.html" %}
+            {% endif %}
+            </div>
+            {% endblock %}
+            {% block cal_block %}
+        {% endblock %}
+    </body>
+</html>

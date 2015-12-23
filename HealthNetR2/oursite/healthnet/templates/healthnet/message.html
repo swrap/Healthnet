@@ -1,0 +1,39 @@
+{% extends group %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Messages</title>
+    </head>
+
+    <body>
+    {% block body_block %}
+      <div id="message_body">
+        <form id="make_appointment" method="post" action="{% url 'healthnet:messages' %}">
+            {% csrf_token %}
+            <h1>Messages</h1>
+            {% for e in all_messages %}
+                From: {{ e.from_user }}
+                To: {{ e.to_user }}
+                <br>
+                Date/Time: {{ e.date_time }}
+                <br>
+                Message: {{ e.message }}
+                <br>
+                <br>
+			{% endfor %}
+            <input type="submit" name="Go Back" value="Go Back" />
+            <br>
+            <a href="/healthnet/newmessage/"><input type="button" value="New Message"/></a>
+        </form>
+      </div>
+
+    {% endblock %}
+
+      {% block cal_block %}
+        {% endblock %}
+    </body>
+
+</html>

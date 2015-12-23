@@ -1,0 +1,25 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <!-- Is anyone getting tired of repeatedly entering the header over and over?? -->
+    <title>HealthNet Make Appointment</title>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>Make an appointment</h1>
+
+    <form id="appointmentForm" method="post" action="/healthnet/appointment/">{% csrf_token %}
+
+        {{ appointment.as_p }}
+
+        <input type="submit" value="Submit Appointment" />
+        <a href="{% url 'healthnet:index' %}"><input type="button" value="Go Back to Home"/></a>
+
+    </form>
+
+</body>
+</html>

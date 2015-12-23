@@ -1,0 +1,55 @@
+{% extends 'adminbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Edit User</title>
+    </head>
+
+    {% load user_tags %}
+    {% if user|is_administrators %}
+    <body>
+    {% block body_block %}
+    <div id="admin_edit_body">
+        <form id="edit_user" method="post" action="/healthnet/admin/edituser/">
+                {% csrf_token %}
+                <h1>Edit User</h1>
+                <p> User: {{ username }}</p>
+                <p> User Type: {{ user_group }}</p>
+                {{ admin_form.as_p }}
+                {{ admin_profile_form.as_p }}
+                <button name="edit_user" id="edit_user" type="submit" >Save</button>
+                <a href="/healthnet/admin/"><input type="button" value="Cancel and Back"/></a> 
+                {% if cantransfer %}
+                    <button name="transfer" id="edit_user" type="submit" >Transfer</button>
+                {% endif %}
+        </form>
+
+    <form id="select_user" type="get" action="/healthnet/admin/edituser/" style="margin: 0">
+        {% csrf_token %}
+        <br>
+        <br>
+        <input id="search_box" type="text" name="search_box"  placeholder="Search and press enter...">
+    </form>
+
+    <form id="selected_user" type="get" action="/healthnet/admin/edituser/">
+        {% csrf_token %}
+        <select name="selected_user" title="Usernames" size="10">
+            <option disabled >Username</option>
+            {% for u in users %}
+                    <option value="{{ u.username }}" name="{{ u.username }}">{{ u.username }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button name="search_submit" type="submit" >Select</button>
+        <button name="delete_user" onclick="return confirm('Are you sure?')" type="submit">Delete</button>
+    </form>
+        </div>
+    {% endblock %}
+    </body>
+    {% else %}
+        {% include "healthnet/index.html" %}
+    {% endif %}
+</html>

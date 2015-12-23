@@ -1,0 +1,29 @@
+{% extends 'patientbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Patient Homepage</title>
+    </head>
+
+    <body>
+            {% block body_block %}
+            <div id="patient_index_body">
+
+            {% csrf_token %}
+            {% load patient_tags %}
+            {% if user|is_patient %}
+            <h2 id="welcome_title">Welcome To Your HealthNet HomePage</h2>
+            <h2>Logged-In As Patient: {{ user.first_name }}</h2>
+
+            {% else %}
+                {% include "healthnet/index.html" %}
+            {% endif %}
+            </div>
+
+        {% endblock %}
+    </body>
+</html>

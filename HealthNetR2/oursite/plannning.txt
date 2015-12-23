@@ -1,0 +1,15 @@
+what i want to do with django
+-alter user in healthnet
+-make it so the user can be defined as either an admin, nurse, patient, or doctor
+-link the admin/other apps to it, but use the same model from users
+	-make seperate forms(to exclude fields), views, and htmls
+	-have only one model from user
+-add decorators to limit access to certain apps in the program
+-implement foreign keyss and onetoone
+
+commands run
+-created superuser
+-created groups
+	-patient
+	-administrator
+	-nurse

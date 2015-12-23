@@ -1,0 +1,32 @@
+{% extends 'adminbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <!-- Is anyone getting tired of repeatedly entering the header over and over?? -->
+        <title>Admin Homepage</title>
+    </head>
+
+    <body>
+        {% block body_block %}
+        {% csrf_token %}
+        <div id="admin_index_body">
+        <h1>Welcome to the<br> HealthNet Administrator Page!</h1>
+
+        {% load user_tags %}
+        {% if user|is_administrators %}
+            <h2>Logged in as Administrator: {{ user.first_name }}</h2>
+        {% endif %}
+
+        {% if user|is_administrators %}
+
+        {% else %}
+            {% include "healthnet/index.html" %}
+        {% endif %}
+        </div>
+        {% endblock %}
+    </body>
+</html>

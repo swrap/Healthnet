@@ -1,0 +1,11 @@
+[07/Dec/2015 11:00:40] INFO [patient.views:204] Patient "anthony" has added an apointment with Doctor kyle at 2015-12-09 11:00:00
+[07/Dec/2015 11:02:50] INFO [patient.views:204] Patient "anthony" has added an apointment with Doctor kyle at 2015-12-09 12:00:00
+[07/Dec/2015 11:03:03] INFO [patient.views:262] Patient "anthony" has edited his/her apointment with Doctor kyle at 2015-12-10 12:00:00
+[07/Dec/2015 11:06:02] INFO [patient.views:204] Patient "ben" has added an apointment with Doctor jerry at 2015-12-20 11:30:00
+[07/Dec/2015 11:06:16] INFO [patient.views:204] Patient "ben" has added an apointment with Doctor jerry at 2015-12-12 13:00:00
+[07/Dec/2015 11:07:49] INFO [patient.views:69] User "edward" has been registered
+[07/Dec/2015 11:08:10] INFO [patient.views:204] Patient "edward" has added an apointment with Doctor kyle at 2015-12-10 11:00:00
+[07/Dec/2015 11:08:30] INFO [patient.views:204] Patient "edward" has added an apointment with Doctor jerry at 2015-12-09 12:00:00
+[07/Dec/2015 11:09:04] INFO [patient.views:204] Patient "edward" has added an apointment with Doctor kyle at 2015-12-12 11:00:00
+[07/Dec/2015 14:22:38] INFO [patient.views:258] Patient "edward" has edited his/her apointment with Doctor kyle at 2015-12-12 11:00:00
+[07/Dec/2015 14:24:58] INFO [patient.views:258] Patient "edward" has edited his/her apointment with Doctor kyle at 2015-12-12 11:00:00

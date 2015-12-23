@@ -1,0 +1,38 @@
+{% extends 'adminbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Add User</title>
+    </head>
+
+    <body>
+        {% block body_block %}
+        <div id="admin_add_body">
+        <form id="create_user" method="post" action="/healthnet/admin/createuser/">
+            {% csrf_token %}
+            {% load user_tags %}
+            {% if user|is_administrators %}
+                <h1> Add New User</h1>
+                <input name="Create Doctor" type="submit" value="Create Doctor">
+                <input name="Create Staff" type="submit" value="Create Staff">
+                {{ form.as_p }}
+                {{ profile_form.as_p }}
+                {% if chosen == 1 %}
+                    <input type="submit" name="{{chosen}}" value="Register Doctor" />
+                {% endif %}
+                {% if chosen == 2 %}
+                    <input type="submit" name="{{chosen}}" value="Register Staff" />
+                {% endif %}
+
+                <a href="/healthnet/admin/"><input type="button" value="Cancel"/></a>
+            {% else %}
+                {% include "/healthnet/admin/" %}
+            {% endif %}
+        </form>
+            </div>
+    {% endblock %}
+    </body>
+</html>

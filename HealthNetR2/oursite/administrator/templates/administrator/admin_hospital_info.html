@@ -1,0 +1,37 @@
+{% extends 'adminbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Add User</title>
+    </head>
+
+    <body>
+        {% block body_block %}
+        <div id="admin_hosp_body">
+        <form id="create_user" method="post" action="/healthnet/admin/createuser/">
+            {% csrf_token %}
+            {% load user_tags %}
+            {% if user|is_administrators %}
+                <h1>Hospital Information</h1>
+                {% for e in hospital_all %}
+                    <div id="hosp_list">
+                    <ul><h2>{{e.name}}</h2>
+                    <p>Admitted Patients: {{e.admitted_patient_count}}</p>
+                    <p>Patient Count: {{e.patient_count}}</p>
+                    <p>Staff (non doctor) Count: {{e.staff_count}}</p>
+                    <p>Doctor Count: {{e.doctor_count}}</p>
+                        </ul>
+                {% endfor %}
+                <a href="/healthnet/admin/"><input type="button" value="Go Back"/></a>
+            {% else %}
+                {% include "/healthnet/admin/" %}
+            {% endif %}
+                    </div>
+        </form>
+            </div>
+    {% endblock %}
+    </body>
+</html>

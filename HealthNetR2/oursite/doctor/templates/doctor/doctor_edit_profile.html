@@ -1,0 +1,33 @@
+{% extends 'doctorbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Edit User</title>
+    </head>
+
+    <body>
+        {% block body_block %}
+        {% load doctor_tags %}
+        {% if user|is_doctor %}
+        <div id="doctor_editpro">
+        <form id="edit_doctor" method="post" action="/healthnet/doctor/editprofile/">
+                {% csrf_token %}
+                <h1>Edit Profile</h1>
+                {{ doctor_form.as_p }}
+                <button name="save_edit" id="edit_profile" type="submit" >Save</button>
+                <a href="/healthnet/doctor/"><input type="button" value="Go Back"/></a>
+        </form>
+        {% else %}
+            {% include "healthnet/index.html" %}
+        {% endif %}
+        </div>
+    {% endblock %}
+
+            {% block cal_block %}
+        {% endblock %}
+
+    </body>
+</html>

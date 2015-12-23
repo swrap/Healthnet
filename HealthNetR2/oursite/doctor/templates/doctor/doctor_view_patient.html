@@ -1,0 +1,91 @@
+{% extends 'doctorbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+    <body>
+        {% block body_block %}
+        {% csrf_token %}
+        {% load doctor_tags %}
+        <div id="doctor_viewpatient_body">
+        {% if user|is_doctor %}
+            <h1>Patient for Doctor: {{ user.first_name }}</h1>
+            <form id="viewpatient" method="get" action="{% url 'doctor:viewpatient' userprofile.id %}">{% csrf_token %}
+                <b>Username: </b> {{ userprofile.user.username }}<br><br>
+                <b>First Name: </b> {{ userprofile.user.first_name }}<br><br>
+                <b>Last Name: </b> {{ userprofile.user.last_name }}<br><br>
+                <b>Hospital: </b> {{ userprofile.hospital.name }}<br><br>
+                <b>Currently Admitted: </b> {{ userprofile.is_in_hospital }}<br>
+                {{ userprofileform.as_p }}
+                <input type="submit" name='update' value="Update" />
+                <br>
+                <h2>Prescriptions</h2>
+                {% if plen == 0 %}
+                    <p> None </p>
+                {% endif %}
+                {% for e in pscripts %}
+                    {% if plen > 0 %}
+                    <p>Name of Patient: {{ e.user.first_name }} {{ e.user.last_name}}
+                    <br>Doctor who Prescribed: {{ e.prescribed_by_doctor }}
+                    <br>Name of Prescription: {{ e.name }}
+                    <br>Amount to Take: {{ e.amount }}
+                    <br>Reason: {{ e.reason }}
+                    <br>
+                        <a href="{% url 'doctor:deletepscript' e.id userprofile.id%}"><input type="button" value="Delete"/></a>
+                    <br>
+                    {% endif %}
+                {% endfor %}
+
+                <h2>Tests</h2>
+                {% if tlen == 0 %}
+                    <p> None </p>
+                {% endif %}
+                {% for e in tests %}
+                    {% if tlen > 0 %}
+                    <p>Name of Patient: {{ e.user.first_name }} {{ e.user.last_name}}
+                    <br>Doctor who Prescribed: {{ e.prescribed_by_doctor }}
+                    <br>Name of Test: {{ e.name_of_test }}
+                    <br>Result: {{ e.result }}
+                    <br>Reason/Comments: {{ e.reason }}
+                    <br>
+                        <a href="{% url 'doctor:edittest' e.id userprofile.id %}"><input type="button" value="Edit"/></a>
+                        <a href="{% url 'doctor:deletetest' e.id userprofile.id %}"><input type="button" value="Delete"/></a>
+                    <br>
+                    {% endif %}
+                {% endfor %}
+
+                <h2>Files (Click FileName to View/Download)</h2>
+                {% if files %}
+                    {% for e in files %}
+                        <a href="{{ e.patient_file.url }}">{{ e.file_name }}{{ e|extension }}</a>
+                        <a href="{% url 'doctor:deletefile' e.id userprofile.id %}"><input type="button" value="Delete"/></a><br>
+                    {% endfor %}
+                {% else %}
+                    <p>None</p>
+                {% endif %}
+
+                <div id="button_box">
+                    <input type="submit" name='makepscript' value="Make Prescription" />
+                    <input type="submit" name='maketest' value="Make Test" />
+                    <input type="submit" name='allpatients' value="View All Patients" />
+                    <input type="submit" name='admitreleaseform' value="Admit/Release Patient" />
+                    <input type="submit" name='uploadfile' value="Upload File" />
+                    {% if cantransfer %}
+                        <input type="submit" name='transferpatient' value="Transfer Patient" />
+                    {% endif %}
+                </div>
+            </form>
+            {% else %}
+                {% include "healthnet/index.html" %}
+            {% endif %}
+            </div>
+            {% endblock %}
+
+            {% block cal_block %}
+        {% endblock %}
+    </body>
+</html>

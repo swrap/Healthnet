@@ -1,0 +1,29 @@
+{% extends 'adminbase.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <title>Add User</title>
+    </head>
+
+    <body>
+        {% block body_block %}
+        <div id="log_body">
+        <form id="create_user" method="post" action="/healthnet/admin/log/">
+            {% csrf_token %}
+            {% load user_tags %}
+            {% if user|is_administrators %}
+                <h1>Log<h1>
+                {% for e in log %}
+                    <h3>{{e}}</h3>
+                {% endfor %}
+            {% else %}
+                {% include "/healthnet/admin/" %}
+            {% endif %}
+        </form>
+            </div>
+    {% endblock %}
+    </body>
+</html>
